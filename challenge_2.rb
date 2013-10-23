@@ -1,5 +1,20 @@
+# require './challenge_1.rb'
 # Line 1 effectively copy-pastes in any code you wrote in challenge_1.rb
 # It's similar to connecting an external stylesheet to an HTML file.
+
+def pmt(rate, term, bal)
+  # Convert annual rate to monthly and make it decimal.
+  r = rate / 1200
+
+  # Numerator
+  n = r * bal
+
+  # Denominator
+  d = 1 - (1 + r)**-term
+
+  # Calc the monthly payment.
+  pmt = n / d
+end
 
 # ===========
 # CHALLENGE 2
@@ -26,10 +41,7 @@ bal = gets.chomp.to_f
 #   Re-use the pmt method that you defined in Challenge 1.
 
 loan_quotes.each do |a| # will iterate through all the banks and rates
-       puts a["bank"].to_s  # will give the first bank
-       puts a["rate"].to_s #will give the rate of the first bank
-       # now call the pmt function to get the pmt for each bank
-
-    require './challenge_1a.rb'
-
+       # puts a["bank"] # will give the first bank
+       # puts a["rate"] #will give the rate of the first bank
+       puts pmt(a["rate"], term, bal)
 end
