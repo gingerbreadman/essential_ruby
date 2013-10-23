@@ -17,8 +17,32 @@
 # Your code to define the method goes here.
 # =========================================
 
-def pmt(interest_rate, number_of_payments, present_value)
+print "Enter loan amount: "
 
-end
+loan = gets.chomp.to_i
 
-puts "Your monthly payment will be #{pmt(0.01, 60, 30000)}."
+print "Enter for duration in months: "
+
+time = gets.chomp.to_i
+
+print "Enter the interest rate: "
+
+rate = gets.chomp.to_f/100
+
+i = (1+rate/12)**(12/12)-1
+
+annuity = (1-(1/(1+i))**time)/i
+
+payment = loan/annuity
+
+puts "\n$%.2f per month" % [payment]
+
+
+
+# def pmt(interest_rate, number_of_payments, present_value)
+#
+# end
+#
+# n = { "first_name" => "Neil", "last_name" => "Hartz" }
+#
+# ruputs "Your monthly payment will be #{pmt(0.01, 60, 30000)}."

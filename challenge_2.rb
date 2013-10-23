@@ -1,4 +1,3 @@
-require './challenge_1.rb'
 # Line 1 effectively copy-pastes in any code you wrote in challenge_1.rb
 # It's similar to connecting an external stylesheet to an HTML file.
 
@@ -17,15 +16,20 @@ loan_quotes = [
 # Let's ask our user for the parameters of the loan:
 
 puts "Enter the number of payments:"
-nper = gets.chomp.to_i
+term = gets.chomp.to_i
 
 puts "Enter the loan amount:"
-pv = gets.chomp.to_f
+bal = gets.chomp.to_f
 
 # Now, loop through the array of loan quotes using .each:
 #   For each option, tell the user how much the monthly payment will be to that bank.
 #   Re-use the pmt method that you defined in Challenge 1.
 
-# ====================
-# Your code goes here.
-# ====================
+loan_quotes.each do |a| # will iterate through all the banks and rates
+       puts a["bank"].to_s  # will give the first bank
+       puts a["rate"].to_s #will give the rate of the first bank
+       # now call the pmt function to get the pmt for each bank
+
+    require './challenge_1a.rb'
+
+end
